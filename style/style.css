@@ -56,17 +56,17 @@ body {
   font-weight: bold;
   font-size: medium;
 }
-#jail {
+.jail {
   background-color: #ff9999;
   font-weight: bold;
     font-size: medium;
 }
-#chance{
+.chance{
   background-color: #ccf;
   font-style: italic;
   font-size: medium;
 }
-.community_chest {
+.community_chest{
     background-color: #cdf;
     font-style: italic;
     font-size: medium;
@@ -76,7 +76,7 @@ body {
     font-style: italic;
     font-size: medium;
 }
-.railroad,{
+.railroad{
     background-color: #ddd;
     font-style: italic;
     font-size: medium;
@@ -176,4 +176,9 @@ button:hover {
 .player p {
   font-size: 18px;
   font-weight: bold;
+}
+
+.passed-position {
+  border: 20px solid green;
+  transition: background-color 2s;
 }
