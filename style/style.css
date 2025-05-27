@@ -56,12 +56,12 @@ body {
   font-weight: bold;
   font-size: medium;
 }
-#jail {
+.jail {
   background-color: #ff9999;
   font-weight: bold;
     font-size: medium;
 }
-#chance{
+.chance{
   background-color: #ccf;
   font-style: italic;
   font-size: medium;
@@ -76,7 +76,7 @@ body {
     font-style: italic;
     font-size: medium;
 }
-.railroad,{
+.railroad{
     background-color: #ddd;
     font-style: italic;
     font-size: medium;
@@ -116,7 +116,7 @@ body {
     font-style: italic;
     font-size: medium;   
 }
-#land4{
+.land4{
     background-color:rgb(221, 172, 82);
     font-style: italic;
     font-size: medium;   
@@ -155,7 +155,6 @@ button:hover {
   background: #2980b9;
 }
 
-
 .player {
   
   border: 2px solid #333;
@@ -165,7 +164,6 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 15%;
   height: 862px;
-;
 }
 
 .player h2 {
