@@ -1,24 +1,24 @@
 body {
   margin: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction:row;
-  height: 100vh;
+  flex-direction: row;
   width: 100vw;
+  height: 100vh;
+  justify-content:space-around;
   background-color: lightblue;
+  align-items:center;
 }
 
 .container {
   display: grid;
+  width: 1246px;
+  height: 862px;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, 1fr);
-  width: 90vmin;
-  height: 90vmin;
   background-color: yellow;
   border: 4px solid #333;
-  /* height: 95vh;
-  width: 65%; */
+  /* /* height: 95vh; */
+  
   background-color: aquamarine;
 }
 
@@ -41,6 +41,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("../media/middle_970x673.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .center-image img { 
@@ -48,7 +51,7 @@ body {
   max-height: 100%;
   object-fit: contain;
 } 
-#go {
+.go {
   background-color: #ffcc00;
   font-weight: bold;
   font-size: medium;
@@ -63,52 +66,52 @@ body {
   font-style: italic;
   font-size: medium;
 }
-#community_chest {
+.community_chest {
     background-color: #cdf;
     font-style: italic;
     font-size: medium;
 }
-#tax{
+.tax{
     background-color: #eee;
     font-style: italic;
     font-size: medium;
 }
-#railroad {
+.railroad,{
     background-color: #ddd;
     font-style: italic;
     font-size: medium;
 }
-#electro{
+.electro{
     background-color:rgb(255, 255, 0);
     font-style: italic;
     font-size: medium;
 }
-#water{
+.water{
     background-color:rgb(132, 222, 234);
     font-style: italic;
     font-size: medium;
 }
-#parking{
+.parking{
     background-color:rgb(198, 131, 214);
     font-style: italic;
     font-size: medium;   
 }
-#jail_direction{
+.jail_direction{
     background-color:rgb(220, 118, 118);
     font-style: italic;
     font-size: medium;   
 }
-#land1{
+.land1{
     background-color:rgb(164, 85, 85);
     font-style: italic;
     font-size: medium;   
 }
-#land2{
+.land2{
     background-color:lightskyblue;
     font-style: italic;
     font-size: medium;   
 }
-#land3{
+.land3{
     background-color:rgb(154, 79, 154);
     font-style: italic;
     font-size: medium;   
@@ -118,22 +121,22 @@ body {
     font-style: italic;
     font-size: medium;   
 }
-#land5{
+.land5{
     background-color:rgb(199, 81, 68);
     font-style: italic;
     font-size: medium;   
 }
-#land6{
+.land6{
     background-color:yellow;
     font-style: italic;
     font-size: medium;   
 }
-#land7{
+.land7{
     background-color:green;
     font-style: italic;
     font-size: medium;   
 }
-#land8{
+.land8{
     background-color:blue;
     font-style: italic;
     font-size: medium;   
@@ -151,21 +154,18 @@ button{
 button:hover {
   background: #2980b9;
 }
-.player-container {
-  display: flex;
-  justify-content: space-around;
-  margin: 30px auto;
-  max-width: 600px;
-}
+
 
 .player {
-  width: 45%;
-  padding: 20px;
+  
   border: 2px solid #333;
   border-radius: 10px;
   background-color: #f2f2f2;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 15%;
+  height: 862px;
+;
 }
 
 .player h2 {
