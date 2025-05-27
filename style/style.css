@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction:row;
+  height: 100vh;
+  width: 100vw;
+  background-color: lightblue;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 90vmin;
+  height: 90vmin;
+  background-color: yellow;
+  border: 4px solid #333;
+  /* height: 95vh;
+  width: 65%; */
+  background-color: aquamarine;
+}
+
+.cell {
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.55rem;
+  padding: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+
+.center-image {
+  grid-column: 2 / 9; 
+   grid-row: 2 / 9;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-image img { 
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+} 
+#go {
+  background-color: #ffcc00;
+  font-weight: bold;
+  font-size: medium;
+}
+#jail {
+  background-color: #ff9999;
+  font-weight: bold;
+    font-size: medium;
+}
+#chance{
+  background-color: #ccf;
+  font-style: italic;
+  font-size: medium;
+}
+#community_chest {
+    background-color: #cdf;
+    font-style: italic;
+    font-size: medium;
+}
+#tax{
+    background-color: #eee;
+    font-style: italic;
+    font-size: medium;
+}
+#railroad {
+    background-color: #ddd;
+    font-style: italic;
+    font-size: medium;
+}
+#electro{
+    background-color:rgb(255, 255, 0);
+    font-style: italic;
+    font-size: medium;
+}
+#water{
+    background-color:rgb(132, 222, 234);
+    font-style: italic;
+    font-size: medium;
+}
+#parking{
+    background-color:rgb(198, 131, 214);
+    font-style: italic;
+    font-size: medium;   
+}
+#jail_direction{
+    background-color:rgb(220, 118, 118);
+    font-style: italic;
+    font-size: medium;   
+}
+#land1{
+    background-color:rgb(164, 85, 85);
+    font-style: italic;
+    font-size: medium;   
+}
+#land2{
+    background-color:lightskyblue;
+    font-style: italic;
+    font-size: medium;   
+}
+#land3{
+    background-color:rgb(154, 79, 154);
+    font-style: italic;
+    font-size: medium;   
+}
+#land4{
+    background-color:rgb(221, 172, 82);
+    font-style: italic;
+    font-size: medium;   
+}
+#land5{
+    background-color:rgb(199, 81, 68);
+    font-style: italic;
+    font-size: medium;   
+}
+#land6{
+    background-color:yellow;
+    font-style: italic;
+    font-size: medium;   
+}
+#land7{
+    background-color:green;
+    font-style: italic;
+    font-size: medium;   
+}
+#land8{
+    background-color:blue;
+    font-style: italic;
+    font-size: medium;   
+}
+button{
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2980b9;
+}
+.player-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+.player {
+  width: 45%;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.player h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.player p {
+  font-size: 18px;
+  font-weight: bold;
+}
