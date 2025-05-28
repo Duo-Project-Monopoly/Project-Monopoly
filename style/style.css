@@ -66,7 +66,7 @@ body {
   font-style: italic;
   font-size: medium;
 }
-.community_chest {
+.community_chest{
     background-color: #cdf;
     font-style: italic;
     font-size: medium;
@@ -174,4 +174,29 @@ button:hover {
 .player p {
   font-size: 18px;
   font-weight: bold;
+}
+
+.passed-position1{
+  border: 20px solid green;
+  transition: background-color 2s;
+}
+.passed-position2{
+  border: 20px solid rgb(231, 10, 10);
+  transition: background-color 2s;
+}
+.token {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.token.jump {
+  animation: jump 0.3s ease;
+}
+
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
 }

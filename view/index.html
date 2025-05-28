@@ -9,54 +9,55 @@
 <body>
 
   <div class="player" id="player1">
-    <h2>Player 1</h2>
-    <p>Score: <span id="score1">0</span></p>
-    <button id="dice_player1">Roll</button>
-  </div>  
+  <h2>Player 1</h2>
+  <p>Account: <span id="score1">1500</span> M</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png" id="dice_player1" class="dice">
+  <button id="buy_property1">Buy</button>
+</div>
 
   <div class="container">
-    <div class="cell jail"  id="9">Jail</div>
-    <div class="cell land3" id="10">El Kef <br> 140M</div>
-    <div class="cell electro" id="11">Electric Company</div>
-    <div class="cell land3" id="12">Kasserine<br> 140M</div>
-    <div class="cell railroad" id="13">railroad</div>
-    <div class="cell community_chest"id="14">Community Chest</div>
-    <div class="cell land4" id="15">Sfax<br> 180M</div>
-    <div class="cell land4" id="16">Gabes<br> 180M</div>
-    <div class="cell parking" id="17">Free Parking</div>
-    <div class="cell land2" id="8">Zarzis<br> 100M</div>
-    <div class="cell chance" id="18">Chance</div>
-    <div class="cell land2" id="7">Ben Gerdane<br> 100M</div>
-    <div class="cell land5" id="19">Tabarka<br> 220M</div>
-    <div class="cell tax" id="6">Tax</div>
-    <div class="cell land5" id="20">Beja<br> 220M</div>
-    <div class="cell railroad" id="5">railroad</div>
-    <div class="cell railroad" id="21">railroad</div>
-    <div class="cell land1" id="4">Nabeul<br>60M</div>
-    <div class="cell land6" id="22">Kairouan<br>260M</div>
-    <div class="cell community_chest" id="3">Community Chest</div>
-    <div class="cell water" id="23">Water Company</div>
-    <div class="cell land1" id="2" >Beni Khalled <br> 60M</div>
-    <div class="cell land6" id="24">Sidi Bouzidi <br> 260M</div>
-    <div class="cell go" id="1">Go<br><br>(collect 200dt) </div>
-    <div class="cell land8" id="32">Nefta<br> 350M</div>
-    <div class="cell tax" id="31">Tax</div>
-    <div class="cell land8" id="30">Gafsa<br>350M</div>
-    <div class="cell railroad" id="29">Railroad</div>
-    <div class="cell chance" id="28">chance</div>
-    <div class="cell land7" id="27">Kelibia<br>300M</div>
-    <div class="cell land7" id="26">Djerba<br>300M</div>
-    <div class="cell jail_direction" id="25">Go to Jail</div>
+    <div class="cell jail" id="9" rent="-100">Jail  <br>-100M</div>
+    <div class="cell land3" id="10"  price="180" rent="-40"> El Kef <br>180/40M</div>
+    <div class="cell electro" id="11" rent="100" >Electric Company <br><span>+100</span>M</div>
+    <div class="cell land3" id="12" price="180" rent="-40">Kasserine <br>180/40M</div>
+    <div class="cell railroad" id="13" rent="-100">railroad <br><span>-100</span>M</div>
+    <div class="cell community_chest" id="14" rent="100">Community Chest <br><span>+100</span>M </div>
+    <div class="cell land4" id="15"   price="180" rent="-40">Sfax <br>180/40M</div>
+    <div class="cell land4" id="16"  price="180" rent="-40" >Gabes<br>180/40M</div>
+    <div class="cell parking" id="17" rent="0">Free Parking </div>
+    <div class="cell land2" id="8"  price="100" rent="-20" >Zarzis<br>100/20M</div>
+    <div class="cell chance" id="18" rent="100">Chance <br>+100M</div>
+    <div class="cell land2" id="7"  price="140" rent="-30" >Ben Gerdane<br>100M <br>140M/30M</div>
+    <div class="cell land5" id="19"  price="220" rent="-50" >Tabarka<br>220/50M</div>
+    <div class="cell tax" id="6" rent="-150">Tax <br>-150M</div>
+    <div class="cell land5" id="20"  price="220" rent="-50" >Beja<br>220/50M</div>
+    <div class="cell railroad" id="5" rent="-100">railroad <br>-100M</div>
+    <div class="cell railroad" id="21" rent="-150">railroad <br>-150M</div>
+    <div class="cell land1" id="4"  price="60" rent="-10" >Nabeul<br>60/10M</div>
+    <div class="cell land6" id="22"  price="260" rent="-60" >Kairouan<br>260/60M</div>
+    <div class="cell community_chest" id="3" rent="-150">Community Chest <br>+150M</div>
+    <div class="cell water" id="23" rent="-150">Water Company <br>+150M</div>
+    <div class="cell land1" id="2"  price="60" rent="-10" >Beni Khalled<br>60/10M</div>
+    <div class="cell land6" id="24"  price="260" rent="-60" >Sidi Bouzidi<br>260/60M</div>
+    <div class="cell go" id="1" rent="-200">Go<br><br>(collect 200M)</div>
+    <div class="cell land8" id="32"  price="350" rent="-70" >Nefta<br>350/70M</div>
+    <div class="cell tax" id="31" rent="-150">Tax <br>-150M</div>
+    <div class="cell land8" id="30"  price="350" rent="-70" >Gafsa<br>350/70M</div>
+    <div class="cell railroad" id="29" rent="-100">Railroad <br>-100M</div>
+    <div class="cell chance" id="28" rent="-100">Chance <br>+100M</div>
+    <div class="cell land7" id="27"  price="300" rent="-60" >Kelibia<br>300/60M</div>
+    <div class="cell land7" id="26"  price="300" rent="-60" >Djerba<br>300/60M</div>
+    <div class="cell jail_direction" id="25" rent="-150">Go to Jail <br>-150M</div>
      <div class="center-image">
     </div>
-  </div>  
+</div>    
   <div class="player" id="player2">
-    <h2>Player 2</h2>
-    <p>Score: <span id="score2">0</span></p>
-    <button id="dice_player2">Roll</button>
-   </div>  
+  <h2>Player 2</h2>
+  <p>Account: <span id="score2">1500</span> M</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png" id="dice_player2" class="dice">
+  <button id="buy_property2">Buy</button>
+</div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
   <script src="../script/script.js"></script>
 </body>
 </html>
