@@ -41,7 +41,7 @@ function handleBuy(playerId) {
     cell.classList.contains('land5') || cell.classList.contains('land6') ||
     cell.classList.contains('land7') || cell.classList.contains('land8');
 
-  if (bg === 'rgba(173, 123, 108, 0.37)' || bg === 'rgb(73, 112, 73)') {
+  if (bg === 'rgba(241, 67, 14, 0.83)' || bg === 'rgb(73, 112, 73)') {
     alert("This land is already owned.");
     return;
   }
@@ -56,9 +56,13 @@ function handleBuy(playerId) {
     alert("Not enough money!")
     return
   }
-
   players[playerId].score -= price
-  cell.style.backgroundColor = playerId === 'player1' ? 'rgb(73, 112, 73)' : 'rgba(173, 123, 108, 0.37)';
+  if(playerId === "player1"){
+    cell.style.backgroundColor='rgb(73, 112, 73)'
+  }
+  else if(playerId === "player2"){
+    cell.style.backgroundColor= 'rgba(241, 67, 14, 0.83)'
+  }
   updateScoreUI(playerId);
 }
 
@@ -90,13 +94,25 @@ function highlightPassedPositions(playerId, imageSrc, current, target) {
   $(`.cell[id="${current}"]`).append(playerToken)
 //Puts the token image into the starting cell (current).
 //----------------------------step2: Create the movement path with cellId --------------------------
-  var path = []
-  for (let i = 1; i <= (target - current); i++) {
-    var step = current + i;
-    if (step > 32) {
-        step = step-32}
-    path.push(step);
+ var path = [];
+
+if (target < current) {
+  // Wrap-around case
+  for (let i = current + 1; i <= 32; i++) {
+    path.push(i);
   }
+  for (let i = 1; i <= target; i++) {
+    path.push(i);
+  }
+} else {
+  // Normal forward movement
+  for (let i = current + 1; i <= target; i++) {
+    path.push(i);
+  }
+}
+  console.log("this is your current position",current)
+  console.log("this is your next position",target)
+  console.log("this is your path",path)
   //-------------------------------step3:moves the token step-by-step through the path------------------------
   path.forEach(function(cellId, i){
     setTimeout(function(){
@@ -109,17 +125,17 @@ function highlightPassedPositions(playerId, imageSrc, current, target) {
 }
 // Player 1 turn
 $(dice1).on("click", function () {
-//select player1 to play the game
-var playerId = 'player1'
 //give random number as the dice give when i throw it
 var roll = Math.floor(Math.random() * 5 + 1);
-rollDice("dice_player1", roll)
+console.log("this is your what the dice give",roll)
+rollDice("dice_player1", roll-1)
 //upadate the image of dice_palyer1 by the function rollDice
 var currentPos = players.player1.position
 var newPos = currentPos + roll
 if (newPos > 32) {
 newPos = newPos-32
 }
+console.log("now you are in the  position",newPos)
 //---to do the animation of the token
 highlightPassedPositions(1, "../media/1.png", currentPos, newPos)
 //update the position of player statue
@@ -130,24 +146,33 @@ highlightPassedPositions(1, "../media/1.png", currentPos, newPos)
     //we track the new cell 
     var bgColor = cell.css("background-color")
     //Reads the background color of the new cell to decide for how it belongs
-    var opponentColor = 'rgba(173, 123, 108, 0.37)'
+    var opponentColor = 'rgba(241, 67, 14, 0.83)'
     var mycolor='rgb(73, 112, 73)'
     var rent = parseInt(cell.attr("rent")) 
-    console.log(rent)
+    console.log("this is your old score",players.player1.score )
+    console.log("this is what you gonna pay",rent)
+    
+    console.log("condition",bgColor === opponentColor)
     if (bgColor === opponentColor) {
+    
       players.player1.score=players.player1.score -rent
-      alert("You landed on Player 2's property! -$${rent)}rent");
+      players.player2.score=players.player2.score +rent
+      console.log("players.player1.score,",players.player1.score)
+      console.log("players.player2.score,",players.player2.score)
+      alert("You landed on Player 2's property!  -$"+rent);
     } 
     else if(bgColor === mycolor){
-        players.player1.score=players.player1.score +parseInt(newcell.getAttribute('price'));
-        alert(" this land belongs to you here your rent ${rent} $");
+        players.player1.score=players.player1.score -rent
+        alert(" this land belongs to you here your rent "+-rent+"$")
     }
     //we land on public property
     else {
       players.player1.score =players.player1.score+rent
-      console.log(players.player1.score )
+      console.log("this is your new score player 1",players.player1.score )
     }
-    updateScoreUI("player1");
+    checkGameOver() 
+    updateScoreUI("player1")
+    updateScoreUI("player2")
   }, roll * 300 + 100);
 });
 
@@ -155,13 +180,13 @@ highlightPassedPositions(1, "../media/1.png", currentPos, newPos)
 $(dice2).on("click", function () {
   const playerId = 'player2';
   const roll = Math.floor(Math.random() * 5 + 1);
-  rollDice("dice_player2", roll);
+  rollDice("dice_player2", roll-1);
 
   const currentPos = players[playerId].position;
   let newPos = currentPos + roll;
   if (newPos > 32) newPos -= 32;
 
-  highlightPassedPositions(2, "../media/2.png", currentPos, currentPos + roll);
+  highlightPassedPositions(2, "../media/2.png", currentPos, newPos);
   players[playerId].position = newPos;
 
   setTimeout(() => {
@@ -169,22 +194,25 @@ $(dice2).on("click", function () {
     var bgColor = cell.css("background-color");
     var rent = parseInt(cell.attr("rent")) 
     console.log(rent)
-    var mycolor = 'rgba(173, 123, 108, 0.37)'
+    var mycolor = 'rgba(241, 67, 14, 0.83)'
     var opponentColor='rgb(73, 112, 73)'
     if (bgColor === opponentColor) {
-      players.player2.score=players.player2.score -rent
-      console.log(players.player2.score)
-      alert("You landed on Player 2's property! -$ ${rent} rent");
+      players.player2.score=players.player2.score +rent
+      players.player1.score=players.player1.score -rent
+      console.log("this is your new score player 1",players.player2.score)
+      alert("You landed on Player 1's property! -$"+rent);
     } 
     else if(bgColor === mycolor){
-        players.player2.score=players.player2.score +rent
-        alert(" this land belongs to you here your rent ${rent} $");
+        players.player2.score=players.player2.score -rent
+        alert(" this land belongs to you here your rent "+-rent+"$")
     }
     //you are in place were you can have money or you are stealed
     else {
       players.player2.score =players.player2.score+rent
     }
-    updateScoreUI(playerId);
+    updateScoreUI("player1")
+    updateScoreUI("player2")
+    checkGameOver() 
   }, roll * 300 + 100);
 });
 
@@ -192,17 +220,12 @@ $(dice2).on("click", function () {
 document.getElementById("buy_property1").addEventListener("click", function(){handleBuy("player1")});
 document.getElementById("buy_property2").addEventListener("click", function(){handleBuy("player2")});
 
-// function checkGameOver() {
-//   if (players.player1.score <= 0) {
-//     alert("Player 2 wins! Player 1 ran out of money.");
-//     disableDice();
-//   } else if (players.player2.score <= 0) {
-//     alert("Player 1 wins! Player 2 ran out of money.");
-//     disableDice();
-//   }
-// }
+function checkGameOver() {
+  if (players.player1.score <= 0) {
+    alert("Player 2 wins! Player 1 ran out of money.");
+  } else if (players.player2.score <= 0) {
+    alert("Player 1 wins! Player 2 ran out of money.");
+}
+}
 
-// function disableDice() {
-//   $("#dice_player1").off("click");
-//   $("#dice_player2").off("click");
-// }
+
