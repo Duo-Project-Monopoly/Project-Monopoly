@@ -156,7 +156,10 @@ button:hover {
 }
 
 .player {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items:center;
   border: 2px solid #333;
   border-radius: 10px;
   background-color: #f2f2f2;
@@ -164,6 +167,7 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 15%;
   height: 862px;
+
 }
 
 .player h2 {
